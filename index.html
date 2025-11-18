@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jurnal 7 Kebiasaan Anak Indonesia Hebat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #134e4a 0%, #065f46 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .user-info {
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-buttons button {
+            flex: 1;
+            padding: 12px 10px;
+            border: none;
+            background: rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            min-width: 90px;
+            transition: all 0.3s;
+        }
+
+        .nav-buttons button:active {
+            transform: scale(0.95);
+        }
+
+        .nav-buttons button:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .action-buttons button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: rgba(255,255,255,0.25);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .action-buttons button:hover {
+            background: rgba(255,255,255,0.35);
+        }
+
+        .action-buttons button:active {
+            transform: scale(0.95);
+        }
+
+        .content {
+            padding: 15px;
+        }
+
+        .login-form {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .date-selector {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .date-selector input {
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .habit-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .habit-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            color: #000;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+        }
+
+        .habit-card h3::before {
+            content: "⭐";
+            margin-right: 10px;
+            font-size: 22px;
+        }
+
+        .checklist-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .checklist-item:active {
+            transform: scale(0.98);
+        }
+
+        .checklist-item.checked {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #fff;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
+            text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+        }
+
+        .summary-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .summary-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            height: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+            transition: width 0.5s;
+        }
+
+        .month-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .month-selector select {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-export {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-excel {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-pdf {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .report-section {
+            margin-bottom: 20px;
+        }
+
+        .report-section h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .report-section p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 13px;
+            text-align: justify;
+        }
+
+        .developer-info {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .developer-info strong {
+            color: #667eea;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .logo {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .header, .nav-buttons, .export-buttons, .month-selector {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Page -->
+        <div id="loginPage">
+            <div class="header">
+                <div class="logo">🌟</div>
+                <h1>Jurnal 7 Kebiasaan</h1>
+                <div class="subtitle">Anak Indonesia Hebat</div>
+            </div>
+            <div class="login-form">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="inputNama" placeholder="Masukkan nama lengkap">
+                </div>
+                <div class="form-group">
+                    <label>Kelas</label>
+                    <input type="text" id="inputKelas" placeholder="Contoh: 5A">
+                </div>
+                <div class="form-group">
+                    <label>Nomor Absen</label>
+                    <input type="number" id="inputAbsen" placeholder="Masukkan nomor absen">
+                </div>
+                <div class="form-group">
+                    <label>Nama Sekolah</label>
+                    <input type="text" id="inputSekolah" placeholder="Masukkan nama sekolah">
+                </div>
+                <button class="btn-primary" onclick="login()">Masuk</button>
+                <div class="developer-info">
+                    <div>Dikembangkan oleh</div>
+                    <strong>ARIN EKO YULIANTO</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div id="mainApp" class="hidden">
+            <div class="header">
+                <h1>Jurnal 7 Kebiasaan</h1>
+                <div class="subtitle">Anak Indonesia Hebat</div>
+                <div class="user-info" id="userInfoDisplay"></div>
+                <div class="nav-buttons">
+                    <button onclick="showPage('journal')">📝 Jurnal</button>
+                    <button onclick="showPage('summary')">📊 Ringkasan</button>
+                    <button onclick="showPage('report')">📄 Laporan</button>
+                </div>
+                <div class="action-buttons">
+                    <button onclick="exitApp()">🚪 Keluar</button>
+                    <button onclick="logout()">🔓 Logout</button>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Journal Page -->
+                <div id="journalPage">
+                    <div class="date-selector">
+                        <label style="font-weight: 600;">Tanggal:</label>
+                        <input type="date" id="journalDate" onchange="loadJournalData()">
+                    </div>
+
+                    <!-- Skor Harian -->
+                    <div class="summary-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-align: center;">
+                        <h3 style="color: white; margin-bottom: 15px;">🏆 Skor Harian Anda</h3>
+                        <div style="font-size: 48px; font-weight: bold; margin: 10px 0;" id="dailyScore">0</div>
+                        <div style="font-size: 16px; margin-bottom: 10px;">dari 7 kebiasaan</div>
+                        <div class="progress-bar" style="margin: 15px 0;">
+                            <div class="progress-fill" id="dailyProgress" style="width: 0%; background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);">0</div>
+                        </div>
+                        <div style="font-size: 14px; font-weight: 600; margin-top: 10px;" id="dailyMotivation">Ayo mulai isi jurnalmu! 💪</div>
+                        <button class="btn-export btn-whatsapp" style="margin-top: 15px; width: 100%;" onclick="shareDailyToWhatsApp()">
+                            💬 Bagikan Skor Hari Ini
+                        </button>
+                    </div>
+
+                    <div id="habitsList"></div>
+
+                    <button class="btn-primary" onclick="saveJournal()">💾 Simpan Jurnal</button>
+                </div>
+
+                <!-- Summary Page -->
+                <div id="summaryPage" class="hidden">
+                    <div class="month-selector">
+                        <select id="summaryMonth" onchange="loadSummary()">
+                            <option value="0">Januari</option>
+                            <option value="1">Februari</option>
+                            <option value="2">Maret</option>
+                            <option value="3">April</option>
+                            <option value="4">Mei</option>
+                            <option value="5">Juni</option>
+                            <option value="6">Juli</option>
+                            <option value="7">Agustus</option>
+                            <option value="8">September</option>
+                            <option value="9">Oktober</option>
+                            <option value="10">November</option>
+                            <option value="11">Desember</option>
+                        </select>
+                        <select id="summaryYear" onchange="loadSummary()"></select>
+                    </div>
+
+                    <div id="summaryContent"></div>
+
+                    <div class="export-buttons">
+                        <button class="btn-export btn-excel" onclick="exportToExcel()">📊 Export Excel</button>
+                    </div>
+                </div>
+
+                <!-- Report Page -->
+                <div id="reportPage" class="hidden">
+                    <div class="month-selector">
+                        <select id="reportPeriod" onchange="generateReport()">
+                            <option value="semester1">Semester 1 (Jan-Jun)</option>
+                            <option value="semester2">Semester 2 (Jul-Des)</option>
+                            <option value="custom">Pilih Rentang Bulan</option>
+                        </select>
+                    </div>
+
+                    <div id="customRangeSelector" class="hidden" style="margin-bottom: 15px;">
+                        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                            <select id="startMonth" style="flex: 1; padding: 10px; border: 2px solid #ddd; border-radius: 8px;"></select>
+                            <select id="endMonth" style="flex: 1; padding: 10px; border: 2px solid #ddd; border-radius: 8px;"></select>
+                        </div>
+                        <button class="btn-primary" onclick="generateReport()">Tampilkan Laporan</button>
+                    </div>
+
+                    <div id="reportContent"></div>
+
+                    <div class="export-buttons">
+                        <button class="btn-export btn-pdf" onclick="printReport()">📄 Cetak PDF</button>
+                        <button class="btn-export btn-whatsapp" onclick="shareToWhatsApp()">💬 Bagikan WA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const habits = [
+            {
+                id: 'bangunPagi',
+                name: 'Bangun Pagi',
+                items: ['Bangun pukul 04.00-05.00']
+            },
+            {
+                id: 'taatBeribadah',
+                name: 'Taat Beribadah',
+                items: ['Berdoa', 'Sholat Subuh', 'Sholat Dhuha', 'Sholat Dhuhur', 'Sholat Ashar', 'Sholat Maghrib', 'Sholat Isya', 'Baca Al-Qur\'an']
+            },
+            {
+                id: 'berolahraga',
+                name: 'Berolahraga Teratur',
+                items: ['Jalan Santai', 'Jogging', 'Senam']
+            },
+            {
+                id: 'makanSehat',
+                name: 'Makan Sehat dan Bergizi',
+                items: ['Makan Nasi', 'Makan Sayur', 'Makan Lauk Pauk', 'Makan Buah']
+            },
+            {
+                id: 'gemarBelajar',
+                name: 'Gemar Belajar',
+                items: ['Belajar/Mengerjakan Tugas']
+            },
+            {
+                id: 'bermasyarakat',
+                name: 'Bermasyarakat',
+                items: ['Bersosialisasi dengan Tetangga', 'Membantu Orang Lain', 'Bergaul/Bermain dengan teman']
+            },
+            {
+                id: 'tidurCepat',
+                name: 'Tidur Cepat',
+                items: ['Tidur Maksimal Pukul 21.00']
+            }
+        ];
+
+        const colors = [
+            'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+            'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+            'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
+            'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+            'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)',
+            'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
+            'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'
+        ];
+
+        let currentUser = null;
+
+        function login() {
+            const nama = document.getElementById('inputNama').value.trim();
+            const kelas = document.getElementById('inputKelas').value.trim();
+            const absen = document.getElementById('inputAbsen').value.trim();
+            const sekolah = document.getElementById('inputSekolah').value.trim();
+
+            if (!nama || !kelas || !absen || !sekolah) {
+                alert('Mohon lengkapi semua data!');
+                return;
+            }
+
+            currentUser = { nama, kelas, absen, sekolah };
+            const userKey = `user_${nama}_${kelas}_${absen}_${sekolah}`;
+            
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('mainApp').classList.remove('hidden');
+            
+            document.getElementById('userInfoDisplay').innerHTML = `
+                <strong>${nama}</strong><br>
+                Kelas ${kelas} | Absen ${absen}<br>
+                ${sekolah}
+            `;
+
+            initializeApp();
+        }
+
+        function exitApp() {
+            if (confirm('Keluar dari aplikasi? Data akan tetap tersimpan.')) {
+                location.reload();
+            }
+        }
+
+        function logout() {
+            if (confirm('Logout akan menghapus semua data. Yakin ingin logout?')) {
+                if (currentUser) {
+                    const userKey = `user_${currentUser.nama}_${currentUser.kelas}_${currentUser.absen}_${currentUser.sekolah}`;
+                    localStorage.removeItem(userKey);
+                }
+                currentUser = null;
+                location.reload();
+            }
+        }
+
+        function initializeApp() {
+            document.getElementById('journalDate').valueAsDate = new Date();
+            
+            const currentYear = new Date().getFullYear();
+            const yearSelect = document.getElementById('summaryYear');
+            for (let y = currentYear - 2; y <= currentYear + 2; y++) {
+                const option = document.createElement('option');
+                option.value = y;
+                option.textContent = y;
+                if (y === currentYear) option.selected = true;
+                yearSelect.appendChild(option);
+            }
+
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            const startMonth = document.getElementById('startMonth');
+            const endMonth = document.getElementById('endMonth');
+            months.forEach((m, i) => {
+                startMonth.innerHTML += `<option value="${i}">${m}</option>`;
+                endMonth.innerHTML += `<option value="${i}">${m}</option>`;
+            });
+
+            document.getElementById('summaryMonth').value = new Date().getMonth();
+            
+            renderHabits();
+            loadJournalData();
+        }
+
+        function renderHabits() {
+            const container = document.getElementById('habitsList');
+            container.innerHTML = '';
+
+            habits.forEach((habit, index) => {
+                const card = document.createElement('div');
+                card.className = 'habit-card';
+                card.style.background = colors[index];
+                
+                let itemsHTML = '';
+                habit.items.forEach((item, itemIndex) => {
+                    itemsHTML += `
+                        <div class="checklist-item" id="item_${habit.id}_${itemIndex}">
+                            <input type="checkbox" id="${habit.id}_${itemIndex}">
+                            <label for="${habit.id}_${itemIndex}">${item}</label>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <h3>${habit.name}</h3>
+                    ${itemsHTML}
+                `;
+                container.appendChild(card);
+            });
+
+            // Add event listeners after rendering
+            habits.forEach(habit => {
+                habit.items.forEach((item, itemIndex) => {
+                    const checkbox = document.getElementById(`${habit.id}_${itemIndex}`);
+                    const itemDiv = document.getElementById(`item_${habit.id}_${itemIndex}`);
+                    
+                    checkbox.addEventListener('change', function() {
+                        if (this.checked) {
+                            itemDiv.classList.add('checked');
+                        } else {
+                            itemDiv.classList.remove('checked');
+                        }
+                        updateDailyScore();
+                    });
+
+                    itemDiv.addEventListener('click', function(e) {
+                        if (e.target.tagName !== 'INPUT') {
+                            checkbox.checked = !checkbox.checked;
+                            if (checkbox.checked) {
+                                itemDiv.classList.add('checked');
+                            } else {
+                                itemDiv.classList.remove('checked');
+                            }
+                            updateDailyScore();
+                        }
+                    });
+                });
+            });
+
+            updateDailyScore();
+        }
+
+        function updateDailyScore() {
+            let totalScore = 0;
+            
+            habits.forEach(habit => {
+                let checkedCount = 0;
+                let totalCount = habit.items.length;
+                
+                habit.items.forEach((item, index) => {
+                    const checkbox = document.getElementById(`${habit.id}_${index}`);
+                    if (checkbox && checkbox.checked) {
+                        checkedCount++;
+                    }
+                });
+                
+                const percentage = (checkedCount / totalCount) * 100;
+                if (percentage > 60) {
+                    totalScore++;
+                }
+            });
+
+            const scorePercentage = ((totalScore / habits.length) * 100).toFixed(0);
+            const nilaiRatusan = Math.round((totalScore / 7) * 100);
+            
+            document.getElementById('dailyScore').textContent = totalScore;
+            document.getElementById('dailyProgress').style.width = scorePercentage + '%';
+            document.getElementById('dailyProgress').textContent = nilaiRatusan;
+
+            let motivation = '';
+            if (totalScore === 7) {
+                motivation = '🌟 SEMPURNA! Kamu LUAR BIASA! 🌟';
+            } else if (totalScore >= 5) {
+                motivation = '👏 HEBAT! Terus pertahankan! 💪';
+            } else if (totalScore >= 3) {
+                motivation = '😊 BAGUS! Tingkatkan lagi ya! 📈';
+            } else if (totalScore >= 1) {
+                motivation = '💪 Ayo semangat! Kamu pasti bisa! 🔥';
+            } else {
+                motivation = 'Ayo mulai isi jurnalmu! 💪';
+            }
+            
+            document.getElementById('dailyMotivation').textContent = motivation;
+        }
+
+        function shareDailyToWhatsApp() {
+            const date = document.getElementById('journalDate').value;
+            if (!date) {
+                alert('Pilih tanggal terlebih dahulu!');
+                return;
+            }
+
+            let totalScore = 0;
+            const habitDetails = [];
+            
+            habits.forEach(habit => {
+                let checkedCount = 0;
+                let totalCount = habit.items.length;
+                
+                habit.items.forEach((item, index) => {
+                    const checkbox = document.getElementById(`${habit.id}_${index}`);
+                    if (checkbox && checkbox.checked) {
+                        checkedCount++;
+                    }
+                });
+                
+                const percentage = ((checkedCount / totalCount) * 100).toFixed(0);
+                habitDetails.push(`${habit.name}: ${checkedCount}/${totalCount} (${percentage}%)`);
+                
+                if (percentage > 60) {
+                    totalScore++;
+                }
+            });
+
+            const scorePercentage = ((totalScore / habits.length) * 100).toFixed(1);
+            const dateObj = new Date(date + 'T00:00:00');
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = dateObj.toLocaleDateString('id-ID', options);
+
+            let message = `*JURNAL HARIAN - 7 KEBIASAAN*\n`;
+            message += `*Anak Indonesia Hebat* 🇮🇩\n\n`;
+            message += `📅 *Tanggal:* ${formattedDate}\n`;
+            message += `👤 *Nama:* ${currentUser.nama}\n`;
+            message += `🏫 *Kelas:* ${currentUser.kelas}\n`;
+            message += `📝 *No. Absen:* ${currentUser.absen}\n`;
+            message += `🏛️ *Sekolah:* ${currentUser.sekolah}\n\n`;
+            message += `🏆 *SKOR HARI INI: ${totalScore}/7*\n`;
+            message += `📊 *Persentase: ${scorePercentage}%*\n\n`;
+            message += `📋 *Detail Kebiasaan:*\n`;
+            habitDetails.forEach((detail, index) => {
+                message += `${index + 1}. ${detail}\n`;
+            });
+            message += `\n`;
+
+            if (totalScore === 7) {
+                message += `🌟 *SEMPURNA!* Prestasi luar biasa! 🌟`;
+            } else if (totalScore >= 5) {
+                message += `👏 *HEBAT!* Pertahankan ya! 💪`;
+            } else if (totalScore >= 3) {
+                message += `😊 *BAGUS!* Tingkatkan lagi! 📈`;
+            } else if (totalScore >= 1) {
+                message += `💪 Semangat! Terus berusaha! 🔥`;
+            } else {
+                message += `📝 Yuk mulai isi jurnalmu dengan lebih baik!`;
+            }
+
+            message += `\n\n_Dikembangkan oleh ARIN EKO YULIANTO_`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
+        }
+
+        function saveJournal() {
+            const date = document.getElementById('journalDate').value;
+            if (!date) {
+                alert('Pilih tanggal terlebih dahulu!');
+                return;
+            }
+
+            const data = {};
+            habits.forEach(habit => {
+                data[habit.id] = [];
+                habit.items.forEach((item, index) => {
+                    const checkbox = document.getElementById(`${habit.id}_${index}`);
+                    data[habit.id].push(checkbox.checked);
+                });
+            });
+
+            const userKey = `user_${currentUser.nama}_${currentUser.kelas}_${currentUser.absen}_${currentUser.sekolah}`;
+            let userData = JSON.parse(localStorage.getItem(userKey) || '{}');
+            if (!userData.journals) userData.journals = {};
+            userData.journals[date] = data;
+            localStorage.setItem(userKey, JSON.stringify(userData));
+
+            alert('Jurnal berhasil disimpan! 🎉');
+        }
+
+        function loadJournalData() {
+            const date = document.getElementById('journalDate').value;
+            if (!date) return;
+
+            const userKey = `user_${currentUser.nama}_${currentUser.kelas}_${currentUser.absen}_${currentUser.sekolah}`;
+            const userData = JSON.parse(localStorage.getItem(userKey) || '{}');
+            const journalData = userData.journals?.[date];
+
+            habits.forEach(habit => {
+                habit.items.forEach((item, index) => {
+                    const checkbox = document.getElementById(`${habit.id}_${index}`);
+                    const parent = document.getElementById(`item_${habit.id}_${index}`);
+                    if (checkbox && parent) {
+                        if (journalData && journalData[habit.id]) {
+                            checkbox.checked = journalData[habit.id][index] || false;
+                            if (checkbox.checked) {
+                                parent.classList.add('checked');
+                            } else {
+                                parent.classList.remove('checked');
+                            }
+                        } else {
+                            checkbox.checked = false;
+                            parent.classList.remove('checked');
+                        }
+                    }
+                });
+            });
+
+            updateDailyScore();
+        }
+
+        function showPage(page) {
+            document.getElementById('journalPage').classList.add('hidden');
+            document.getElementById('summaryPage').classList.add('hidden');
+            document.getElementById('reportPage').classList.add('hidden');
+
+            if (page === 'journal') {
+                document.getElementById('journalPage').classList.remove('hidden');
+            } else if (page === 'summary') {
+                document.getElementById('summaryPage').classList.remove('hidden');
+                loadSummary();
+            } else if (page === 'report') {
+                document.getElementById('reportPage').classList.remove('hidden');
+                generateReport();
+            }
+        }
+
+        function loadSummary() {
+            const month = parseInt(document.getElementById('summaryMonth').value);
+            const year = parseInt(document.getElementById('summaryYear').value);
+            const userKey = `user_${currentUser.nama}_${currentUser.kelas}_${currentUser.absen}_${currentUser.sekolah}`;
+            const userData = JSON.parse(localStorage.getItem(userKey) || '{}');
+            const journals = userData.journals || {};
+
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            let totalScore = 0;
+            const habitScores = {};
+
+            habits.forEach(habit => {
+                habitScores[habit.id] = 0;
+            });
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayData = journals[dateStr];
+                
+                if (dayData) {
+                    let dayScore = 0;
+                    habits.forEach(habit => {
+                        if (dayData[habit.id]) {
+                            const checked = dayData[habit.id].filter(x => x).length;
+                            const total = dayData[habit.id].length;
+                            const percentage = (checked / total) * 100;
+                            
+                            if (percentage > 60) {
+                                dayScore++;
+                                habitScores[habit.id]++;
+                            }
+                        }
+                    });
+                    
+                    if ((dayScore / habits.length) * 100 > 60) {
+                        totalScore++;
+                    }
+                }
+            }
+
+            const percentage = ((totalScore / daysInMonth) * 100).toFixed(1);
+            const container = document.getElementById('summaryContent');
+            
+            let summaryHTML = `
+                <div class="summary-card">
+                    <h3>Ringkasan Bulan ${document.getElementById('summaryMonth').options[month].text} ${year}</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="font-size: 48px; font-weight: bold; color: #667eea;">${totalScore}</div>
+                        <div style="color: #666; margin-bottom: 10px;">dari ${daysInMonth} hari</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${percentage}%">${percentage}%</div>
+                        </div>
+                        <div style="margin-top: 10px; font-weight: 600; color: ${percentage >= 60 ? '#28a745' : '#dc3545'}">
+                            ${percentage >= 60 ? '✅ Terbiasa' : '⚠️ Belum Terbiasa'}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            habits.forEach((habit, index) => {
+                const habitPercentage = ((habitScores[habit.id] / daysInMonth) * 100).toFixed(1);
+                summaryHTML += `
+                    <div class="summary-card">
+                        <h3>${habit.name}</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${habitPercentage}%; background: ${colors[index]}">${habitPercentage}%</div>
+                        </div>
+                        <div style="text-align: center; margin-top: 5px; font-size: 13px; color: #666;">
+                            ${habitScores[habit.id]} dari ${daysInMonth} hari
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = summaryHTML;
+        }
+
+        function generateReport() {
+            const period = document.getElementById('reportPeriod').value;
+            const customRange = document.getElementById('customRangeSelector');
+            
+            if (period === 'custom') {
+                customRange.classList.remove('hidden');
+                if (event && event.type === 'change') return;
+            } else {
+                customRange.classList.add('hidden');
+            }
+
+            const userKey = `user_${currentUser.nama}_${currentUser.kelas}_${currentUser.absen}_${currentUser.sekolah}`;
+            const userData = JSON.parse(localStorage.getItem(userKey) || '{}');
+            const journals = userData.journals || {};
+
+            let startMonth, endMonth;
+            const year = new Date().getFullYear();
+
+            if (period === 'semester1') {
+                startMonth = 0; endMonth = 5;
+            } else if (period === 'semester2') {
+                startMonth = 6; endMonth = 11;
+            } else {
+                startMonth = parseInt(document.getElementById('startMonth').value);
+                endMonth = parseInt(document.getElementById('endMonth').value);
+            }
+
+            const habitStats = {};
+            habits.forEach(habit => {
+                habitStats[habit.id] = { total: 0, achieved: 0 };
+            });
+
+            let totalDays = 0;
+            for (let m = startMonth; m <= endMonth; m++) {
+                const daysInMonth = new Date(year, m + 1, 0).getDate();
+                totalDays += daysInMonth;
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dateStr = `${year}-${String(m + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                    const dayData = journals[dateStr];
+                    
+                    if (dayData) {
+                        habits.forEach(habit => {
+                            if (dayData[habit.id]) {
+                                const checked = dayData[habit.id].filter(x => x).length;
+                                const total = dayData[habit.id].length;
+                                const percentage = (checked / total) * 100;
+                                
+                                if (percentage > 60) {
+                                    habitStats[habit.id].achieved++;
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+
+            let reportHTML = `
+                <div class="summary-card">
+                    <h3 style="text-align: center; margin-bottom: 20px;">LAPORAN JURNAL 7 KEBIASAAN</h3>
+                    <div style="margin-bottom: 15px; font-size: 13px;">
+                        <strong>Nama:</strong> ${currentUser.nama}<br>
+                        <strong>Kelas:</strong> ${currentUser.kelas}<br>
+                        <strong>No. Absen:</strong> ${currentUser.absen}<br>
+                        <strong>Sekolah:</strong> ${currentUser.sekolah}<br>
+                        <strong>Periode:</strong> ${period === 'semester1' ? 'Semester 1' : period === 'semester2' ? 'Semester 2' : 'Custom'}
+                    </div>
+                </div>
+            `;
+
+            habits.forEach((habit, index) => {
+                const percentage = ((habitStats[habit.id].achieved / totalDays) * 100).toFixed(1);
+                let description = '';
+                
+                if (percentage >= 80) {
+                    description = `Sangat baik! ${currentUser.nama} menunjukkan konsistensi yang luar biasa dalam ${habit.name.toLowerCase()}. Kebiasaan ini sudah tertanam dengan kuat dan menjadi bagian dari rutinitas harian.`;
+                } else if (percentage >= 60) {
+                    description = `Baik! ${currentUser.nama} sudah cukup konsisten dalam ${habit.name.toLowerCase()}. Pertahankan dan tingkatkan lagi agar kebiasaan ini semakin kuat.`;
+                } else if (percentage >= 40) {
+                    description = `Cukup! ${currentUser.nama} perlu meningkatkan konsistensi dalam ${habit.name.toLowerCase()}. Mulai buat target harian yang lebih realistis dan komitmen yang lebih kuat.`;
+                } else {
+                    description = `Perlu Perbaikan! ${currentUser.nama} masih perlu banyak berlatih untuk ${habit.name.toLowerCase()}. Buatlah rencana konkret dan minta dukungan dari orang tua atau guru.`;
+                }
+
+                reportHTML += `
+                    <div class="report-section">
+                        <h4>${habit.name}</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${percentage}%; background: ${colors[index]}">${percentage}%</div>
+                        </div>
+                        <p>${description}</p>
+                    </div>
+                `;
+            });
+
+            const averagePercentage = (habits.reduce((sum, habit) => {
+                return sum + (habitStats[habit.id].achieved / totalDays) * 100;
+            }, 0) / habits.length).toFixed(1);
+
+            let conclusion = '';
+            if (averagePercentage >= 80) {
+                conclusion = `${currentUser.nama} adalah siswa yang LUAR BIASA! Dengan pencapaian ${averagePercentage}%, menunjukkan kedisiplinan dan komitmen yang sangat tinggi dalam menjalani 7 kebiasaan anak Indonesia hebat. Pertahankan kebiasaan positif ini dan jadilah teladan bagi teman-teman yang lain.`;
+            } else if (averagePercentage >= 60) {
+                conclusion = `${currentUser.nama} menunjukkan usaha yang BAIK dengan pencapaian ${averagePercentage}%. Kebiasaan-kebiasaan positif sudah mulai terbentuk. Tingkatkan lagi konsistensi di beberapa kebiasaan yang masih kurang untuk mencapai hasil yang maksimal.`;
+            } else if (averagePercentage >= 40) {
+                conclusion = `${currentUser.nama} sudah menunjukkan usaha dengan pencapaian ${averagePercentage}%. Masih perlu peningkatan signifikan dalam konsistensi. Buat target harian yang jelas dan minta dukungan orang tua untuk membangun kebiasaan positif.`;
+            } else {
+                conclusion = `${currentUser.nama} perlu FOKUS dan KOMITMEN lebih tinggi dengan pencapaian ${averagePercentage}%. Mulailah dengan satu atau dua kebiasaan terlebih dahulu, bangun secara perlahan hingga menjadi rutinitas. Jangan menyerah, setiap usaha kecil adalah langkah menuju keberhasilan!`;
+            }
+
+            reportHTML += `
+                <div class="summary-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <h3 style="color: white;">Kesimpulan</h3>
+                    <div style="text-align: center; margin: 15px 0;">
+                        <div style="font-size: 36px; font-weight: bold;">${averagePercentage}%</div>
+                        <div style="opacity: 0.9;">Rata-rata Pencapaian</div>
+                    </div>
+                    <p style="color: white;">${conclusion}</p>
+                </div>
+                
+                <div class="developer-info">
+                    <div>Dikembangkan oleh</div>
+                    <strong>ARIN EKO YULIANTO</strong>
+                </div>
+            `;
+
+            document.getElementById('reportContent').innerHTML = reportHTML;
+        }
+
+        function exportToExcel() {
+            const month = parseInt(document.getElementById('summaryMonth').value);
+            const year = parseInt(document.getElementById('summaryYear').value);
+            const userKey = `user_${currentUser.nama}_${currentUser.kelas}_${currentUser.absen}_${currentUser.sekolah}`;
+            const userData = JSON.parse(localStorage.getItem(userKey) || '{}');
+            const journals = userData.journals || {};
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let csv = 'Jurnal 7 Kebiasaan Anak Indonesia Hebat\n';
+            csv += `Nama: ${currentUser.nama}\n`;
+            csv += `Kelas: ${currentUser.kelas}\n`;
+            csv += `No. Absen: ${currentUser.absen}\n`;
+            csv += `Sekolah: ${currentUser.sekolah}\n`;
+            csv += `Bulan: ${document.getElementById('summaryMonth').options[month].text} ${year}\n\n`;
+
+            csv += 'Tanggal,';
+            habits.forEach(habit => {
+                csv += `${habit.name},`;
+            });
+            csv += 'Total Nilai,Status\n';
+
+            let totalScores = {};
+            habits.forEach(habit => {
+                totalScores[habit.id] = 0;
+            });
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayData = journals[dateStr];
+                
+                csv += `${day},`;
+                
+                let dayScore = 0;
+                habits.forEach(habit => {
+                    let score = 0;
+                    if (dayData && dayData[habit.id]) {
+                        const checked = dayData[habit.id].filter(x => x).length;
+                        const total = dayData[habit.id].length;
+                        const percentage = (checked / total) * 100;
+                        if (percentage > 60) {
+                            score = 1;
+                            dayScore++;
+                        }
+                    }
+                    csv += `${score},`;
+                    totalScores[habit.id] += score;
+                });
+                
+                const status = (dayScore / habits.length) * 100 > 60 ? 'Terbiasa' : 'Belum Terbiasa';
+                csv += `${dayScore},${status}\n`;
+            }
+
+            csv += '\nTotal Nilai per Kebiasaan:,';
+            habits.forEach(habit => {
+                csv += `${totalScores[habit.id]},`;
+            });
+            csv += '\n';
+
+            csv += 'Persentase:,';
+            habits.forEach(habit => {
+                const percentage = ((totalScores[habit.id] / daysInMonth) * 100).toFixed(1);
+                csv += `${percentage}%,`;
+            });
+            csv += '\n';
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `Jurnal_7_Kebiasaan_${currentUser.nama}_${month + 1}_${year}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function printReport() {
+            window.print();
+        }
+
+        function shareToWhatsApp() {
+            const period = document.getElementById('reportPeriod').value;
+            const userKey = `user_${currentUser.nama}_${currentUser.kelas}_${currentUser.absen}_${currentUser.sekolah}`;
+            const userData = JSON.parse(localStorage.getItem(userKey) || '{}');
+            const journals = userData.journals || {};
+
+            let startMonth, endMonth;
+            const year = new Date().getFullYear();
+
+            if (period === 'semester1') {
+                startMonth = 0; endMonth = 5;
+            } else if (period === 'semester2') {
+                startMonth = 6; endMonth = 11;
+            } else {
+                startMonth = parseInt(document.getElementById('startMonth').value);
+                endMonth = parseInt(document.getElementById('endMonth').value);
+            }
+
+            const habitStats = {};
+            habits.forEach(habit => {
+                habitStats[habit.id] = { achieved: 0 };
+            });
+
+            let totalDays = 0;
+            for (let m = startMonth; m <= endMonth; m++) {
+                const daysInMonth = new Date(year, m + 1, 0).getDate();
+                totalDays += daysInMonth;
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dateStr = `${year}-${String(m + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                    const dayData = journals[dateStr];
+                    
+                    if (dayData) {
+                        habits.forEach(habit => {
+                            if (dayData[habit.id]) {
+                                const checked = dayData[habit.id].filter(x => x).length;
+                                const total = dayData[habit.id].length;
+                                const percentage = (checked / total) * 100;
+                                if (percentage > 60) habitStats[habit.id].achieved++;
+                            }
+                        });
+                    }
+                }
+            }
+
+            const averagePercentage = (habits.reduce((sum, habit) => {
+                return sum + (habitStats[habit.id].achieved / totalDays) * 100;
+            }, 0) / habits.length).toFixed(1);
+
+            let message = `*LAPORAN JURNAL 7 KEBIASAAN*\n`;
+            message += `*Anak Indonesia Hebat*\n\n`;
+            message += `👤 *Nama:* ${currentUser.nama}\n`;
+            message += `🏫 *Kelas:* ${currentUser.kelas}\n`;
+            message += `📝 *No. Absen:* ${currentUser.absen}\n`;
+            message += `🏛️ *Sekolah:* ${currentUser.sekolah}\n`;
+            message += `📅 *Periode:* ${period === 'semester1' ? 'Semester 1' : period === 'semester2' ? 'Semester 2' : 'Custom'}\n\n`;
+            message += `📊 *PENCAPAIAN:*\n\n`;
+
+            habits.forEach(habit => {
+                const percentage = ((habitStats[habit.id].achieved / totalDays) * 100).toFixed(1);
+                message += `✅ ${habit.name}: ${percentage}%\n`;
+            });
+
+            message += `\n🎯 *Rata-rata Pencapaian: ${averagePercentage}%*\n\n`;
+            
+            if (averagePercentage >= 80) {
+                message += `🌟 LUAR BIASA! Pertahankan kebiasaan positif ini!`;
+            } else if (averagePercentage >= 60) {
+                message += `👍 BAIK! Tingkatkan lagi konsistensinya!`;
+            } else {
+                message += `💪 Terus semangat! Perbaiki kebiasaan sedikit demi sedikit!`;
+            }
+
+            message += `\n\n_Dikembangkan oleh ARIN EKO YULIANTO_`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
+        }
+
+        document.getElementById('reportPeriod').addEventListener('change', function() {
+            if (this.value === 'custom') {
+                document.getElementById('customRangeSelector').classList.remove('hidden');
+            } else {
+                document.getElementById('customRangeSelector').classList.add('hidden');
+                generateReport();
+            }
+        });
+    </script>
+</body>
+</html>
